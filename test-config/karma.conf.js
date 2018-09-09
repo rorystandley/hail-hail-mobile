@@ -45,12 +45,19 @@ module.exports = function (config) {
         },
 
         coverageIstanbulReporter: {
-            reports: ['html', 'lcovonly', 'text', 'cobertura', 'clover'],
+            reports: ['html', 'lcovonly', 'text', 'cobertura', 'clover', 'json-summary', 'json', 'lcov'],
             fixWebpackSourcePaths: true
         },
 
         reporters: config.coverage ? ['progress', 'coverage-istanbul', 'spec', 'junit', 'coverage-istanbul']
             : ['progress', 'kjhtml', 'spec', 'junit', 'coverage-istanbul'],
+
+        junitReporter: {
+            outputDir: 'junit', // results will be saved as $outputDir/$browserName.xml
+            outputFile: 'junit.xml', // if included, results will be saved as $outputDir/$browserName/$outputFile
+            useBrowserName: false
+        },
+
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,
