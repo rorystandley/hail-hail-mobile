@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title><img src="./assets/imgs/logo-name.png"/></ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page" no-padding>
+    <ng-container *ngIf="players">
+        <ion-card *ngFor="let player of players.goalkeepers" tappable (tap)="pushPage(player.id)">
+            <img [src]="player.image"/>
+            <div class="card-title">{{player.name}}</div>
+        </ion-card>
+        <ion-card *ngFor="let player of players.defenders" tappable (tap)="pushPage(player.id)">
+            <img [src]="player.image"/>
+            <div class="card-title">{{player.name}}</div>
+        </ion-card>
+        <ion-card *ngFor="let player of players.midfielders" tappable (tap)="pushPage(player.id)">
+            <img [src]="player.image"/>
+            <div class="card-title">{{player.name}}</div>
+        </ion-card>
+        <ion-card *ngFor="let player of players.strikers" tappable (tap)="pushPage(player.id)">
+            <img [src]="player.image"/>
+            <div class="card-title">{{player.name}}</div>
+        </ion-card>
+    </ng-container>
+</ion-content>

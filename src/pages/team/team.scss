@@ -1,0 +1,39 @@
+page-team {
+  .card-background-page {
+
+    ion-card {
+      position: relative;
+      text-align: center;
+      height: 200px;
+      margin: 0 auto;
+      width: 100%
+    }
+
+    .card-title {
+      background: map-get($colors, primary);
+      bottom: 30px;
+      color: #FFF;
+      display: table;
+      font-size: 2.0em;
+      font-weight: bold;
+      padding: 0 10px;
+      position: absolute;
+      text-align: left;
+    }
+
+    .card-subtitle {
+      font-size: 1.0em;
+      position: absolute;
+      top: 52%;
+      width: 100%;
+      color: map-get($colors, primary);
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: #231f20;
+    }
+
+    img {
+      filter: blur(3px);
+    }
+
+  }
+}

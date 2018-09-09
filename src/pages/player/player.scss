@@ -1,0 +1,22 @@
+page-player {
+  .number {
+    background: map-get($colors, primary);
+    color: #FFF;
+    height: 50px;
+    left: 0;
+    line-height: 50px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 50px;
+  }
+  .list {
+    margin: 0!important;
+  }
+  .grey {
+    background: #dedede;
+  }
+  .scroll-content {
+    margin-top: 262px!important;
+  }
+}

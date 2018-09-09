@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title><img src="./assets/imgs/logo-name.png"/></ion-title>
+    </ion-navbar>
+    <ion-segment [(ngModel)]="type" (ionChange)="getData(null, true, true)" padding>
+        <ion-segment-button value="posts">
+            Latest
+        </ion-segment-button>
+        <ion-segment-button value="hotest">
+            Hotest
+        </ion-segment-button>
+    </ion-segment>
+</ion-header>
+
+<ion-content no-padding>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-list no-lines>
+        <ion-item no-padding *ngFor="let post of data">
+            <div [ngStyle]="{'background-image':' url(' + post.featured_image + ')'}" class="featured"></div>
+            <section padding class="source">
+                <span *ngIf="post.source">{{post.source}} - </span>
+                <time>{{post.date | timeAgo}}</time>
+            </section>
+            <p padding text-wrap class="title" [innerHTML]="post.title.rendered || post.title"></p>
+            <button *ngIf="post.url" ion-button float-left margin-left tappable (tap)="openLink(post.url, post.id)">Read More</button>
+            <button *ngIf="post.better_views <= 100" ion-button outline float-right margin-right disabled>
+                <ion-icon name="flame"></ion-icon>
+                {{post.better_views}}
+            </button>
+            <button *ngIf="post.better_views <= 1000 && post.better_views > 100" ion-button outline float-right margin-right disabled color="warm">
+                <ion-icon name="flame"></ion-icon>
+                {{post.better_views}}
+            </button>
+            <button *ngIf="post.better_views > 1000" ion-button outline float-right margin-right disabled color="hot">
+                <ion-icon name="flame"></ion-icon>
+                {{post.better_views}}
+            </button>
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

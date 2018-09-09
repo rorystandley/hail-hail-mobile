@@ -1,0 +1,11 @@
+<div class="fixture-wrapper">
+    <ul *ngIf="data" class="fixture">
+        <li><img [src]="data.location === 'H' || data.location === 'N' ? data.stripceltic : data.strip"/></li>
+        <li class="team">{{data.location === 'H' || data.location === 'N' ? 'Celtic' : data.team}}</li>
+        <li class="versus">V</li>
+        <li class="team">{{data.location === 'A' ? 'Celtic' : data.team}}</li>
+        <li><img src="{{data.location === 'A' ? data.stripceltic : data.strip}}"/></li>
+    </ul>
+    <div class="details" padding-top padding-bottom text-center>{{data.date}} | {{data.competition}} | {{data.time}}
+    </div>
+</div>
