@@ -36,11 +36,11 @@ jobs:
       # run tests!
       - run: npm run test-ci
 
-      - store_artifacts
+      - store_artifacts:
           path: junit/junit.xml
           prefix: test-results
 
-      - store_artifacts
+      - store_artifacts:
           path: coverage
           prefix: coverage
 
