@@ -35,3 +35,11 @@ jobs:
 
       # run tests!
       - run: npm run test-ci
+
+      # store test results
+      - store_artifacts:
+          path: junit/junit.xml
+          prefix: test-results
+
+      - store_test_results:
+          path: ~/repo/junit
