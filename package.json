@@ -12,7 +12,8 @@
 		"ionic:serve": "ionic-app-scripts serve",
 		"test": "karma start ./test-config/karma.conf.js",
 		"test-ci": "karma start ./test-config/karma.conf.js --single-run",
-		"test-coverage": "karma start ./test-config/karma.conf.js --cc --single-run"
+		"test-coverage": "karma start ./test-config/karma.conf.js --cc --single-run",
+		"codecov": "codecov"
 	},
 	"dependencies": {
 		"@angular/common": "5.0.3",
@@ -48,6 +49,7 @@
 		"@types/jasmine": "^2.5.41",
 		"@types/node": "^8.0.45",
 		"angular2-template-loader": "^0.6.2",
+		"codecov": "^3.1.0",
 		"html-loader": "^0.5.1",
 		"istanbul-instrumenter-loader": "^3.0.0",
 		"jasmine": "^2.5.3",
