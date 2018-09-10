@@ -55,6 +55,7 @@
 				"src/test.ts",
 				"src/mocks.ts",
 				"**/*.mock.ts",
+				"**/mocks-ionic.ts",
 				"**/node_modules/**"
 			]
 		}
