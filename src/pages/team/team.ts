@@ -15,7 +15,7 @@ export class TeamPage implements OnInit {
 	players: any;
 	nav: any;
 
-	constructor( private _teamProvider: TeamProvider,
+	constructor( public _teamProvider: TeamProvider,
 	             public _app: App,
 	             private _loadingCtrl: LoadingController ) {
 	}
@@ -45,6 +45,9 @@ export class TeamPage implements OnInit {
 			},
 			error => {
 				loading.dismiss();
+				/**
+				 * TODO - SHow message when something goes wrong
+				 */
 			} )
 	}
 

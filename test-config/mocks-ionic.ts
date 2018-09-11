@@ -3,6 +3,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Observable } from "rxjs/Observable";
 import { ErrorObservable } from "rxjs/observable/ErrorObservable";
 import 'rxjs/add/observable/of';
+import { NavController } from "ionic-angular";
 
 export class teamProviderMockSucess {
 	public get(): any {
@@ -16,11 +17,11 @@ export class teamProviderMockSucess {
 
 export class teamProviderMockFail {
 	public get(): any {
-		return new ErrorObservable( false);
+		return new ErrorObservable( false );
 	}
 
 	public getPlayer( id ): any {
-		return new ErrorObservable( false);
+		return new ErrorObservable( false );
 	}
 }
 
@@ -167,6 +168,55 @@ export class mockLoadingController {
 		instance.create.and.returnValue( loading || mockLoading.instance() );
 
 		return instance;
+	}
+}
+
+export class mockNav {
+	public pop(): any {
+		return new Promise( function ( resolve: Function ): void {
+			resolve();
+		} );
+	}
+
+	public push(): any {
+		return new Promise( function ( resolve: Function ): void {
+			resolve();
+		} );
+	}
+
+	public getActive(): any {
+		return NavController;
+	}
+
+	public getActiveNavs(): any {
+		return [ {
+			setRoot() {
+			}
+		} ];
+	}
+
+	public setRoot(): any {
+		return true;
+	}
+
+	public getViews(): any {
+		return [];
+	}
+}
+
+export class mockAppPlatform {
+	public getActiveNavs(): mockNav {
+		return new mockNav().getActiveNavs();
+	}
+
+	public getActiveNavContainers() {
+		return [
+			{
+				_views: [
+					{}
+				]
+			}
+		]
 	}
 }
 
