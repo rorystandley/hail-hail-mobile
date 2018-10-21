@@ -35,6 +35,7 @@ export class FixturesPage implements OnInit {
 			loading.present();
 		}
 		this._fixtures.get().subscribe( resp => {
+				console.log( resp );
 				this.data = resp;
 				/**
 				 * Hide the loader
