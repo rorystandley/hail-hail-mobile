@@ -13,7 +13,7 @@ export class PlayerPage implements OnInit {
 	id: string;
 	player: any;
 
-	constructor( private _teamProvider: TeamProvider,
+	constructor( public _teamProvider: TeamProvider,
 	             private _navParams: NavParams,
 	             private _loadingCtrl: LoadingController ) {
 	}
@@ -36,6 +36,9 @@ export class PlayerPage implements OnInit {
 			loading.dismiss();
 		}, error => {
 			loading.dismiss();
+			/**
+			 * TODO - Show error message that there gas been an issue
+			 */
 		} );
 	}
 
