@@ -3,7 +3,9 @@
         <li><img [src]="data.location === 'H' || data.location === 'N' ? data.stripCeltic : data.strip"/></li>
         <li class="team">{{data.location === 'H' || data.location === 'N' ? 'Celtic' : data.team}}</li>
         <li *ngIf="!data.score" class="versus">V</li>
-        <li *ngIf="data.score" class="score">{{data.score}}</li>
+        <li *ngIf="data.score" class="score">{{data.location === 'H' || data.location === 'N' ? data.score :
+            reverse(data.score)}}
+        </li>
         <li class="team">{{data.location === 'A' ? 'Celtic' : data.team}}</li>
         <li><img src="{{data.location === 'A' ? data.stripCeltic : data.strip}}"/></li>
     </ul>
