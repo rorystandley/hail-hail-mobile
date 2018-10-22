@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Fixture } from "../../models/fixture";
 
 @Component( {
 	selector: 'app-fixture',
@@ -6,7 +7,7 @@ import { Component, Input } from '@angular/core';
 } )
 export class FixtureComponent {
 
-	@Input() data: any;
+	@Input() data: Fixture;
 
 	constructor() {
 	}
