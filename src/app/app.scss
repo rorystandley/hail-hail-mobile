@@ -51,4 +51,23 @@ img {
   width: 100%;
 }
 
+// NAVIGATION
+.navigation {
+  margin-top: 20px;
+  .description {
+    font-size: 0.750em;
+    padding-left: 40px;
+  }
+
+  ion-icon {
+    color: map-get($colors, primary);
+    padding: 0 10px;
+  }
+
+  .item-inner {
+    border: none !important;
+  }
+}
+
+
 
