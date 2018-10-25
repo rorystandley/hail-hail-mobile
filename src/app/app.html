@@ -2,7 +2,7 @@
 
     <section class="navigation">
         <a *ngFor="let p of pages" menuClose ion-item (click)="openPage(p)" no-padding>
-            <ion-icon class="icon" name="{{p.icon}}"></ion-icon>
+            <i class="{{p.icon}}"></i>
             <span translate *ngIf="p.title">{{p.title}}</span>
             <p class="description" *ngIf="p.description" translate>{{p.description}}</p>
         </a>
