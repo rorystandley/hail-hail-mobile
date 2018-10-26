@@ -83,10 +83,6 @@ export class NewsPage implements OnInit {
 
 	openLink( url, id ) {
 		/**
-		 * Give the user haptic feedback
-		 */
-		this._haptic.selection();
-		/**
 		 * Open the browser
 		 * @type {InAppBrowserObject}
 		 */
