@@ -8,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { TapticEngine } from "@ionic-native/taptic-engine";
+import { AppCenterAnalytics } from '@ionic-native/app-center-analytics';
 
 // Components
 import { FixtureComponent } from "../components/fixture/fixture";
@@ -56,7 +57,8 @@ import { FixturesProvider } from "../providers/fixtures/fixtures";
 		InAppBrowser,
 		TapticEngine,
 		TeamProvider,
-		FixturesProvider
+		FixturesProvider,
+		AppCenterAnalytics
 	]
 } )
 export class AppModule {

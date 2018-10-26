@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AppCenterAnalytics } from "@ionic-native/app-center-analytics";
 
 // Pages
 import { NewsPage } from "../pages/news/news";
@@ -18,14 +19,18 @@ export class MyApp {
 
 	pages: Array<{ icon: string, title: string, component: any, description: string }>;
 
-	constructor( public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen ) {
+	constructor( public platform: Platform,
+	             public statusBar: StatusBar,
+	             public splashScreen: SplashScreen,
+	             private _appCenterAnalytics: AppCenterAnalytics
+	) {
 		this.initializeApp();
 
 		// used for an example of ngFor and navigation
 		this.pages = [
-			{ icon: 'icon-newspaper', title: 'News', component: NewsPage, description: 'This is a description' },
-			{ icon: 'icon-calendar', title: 'Fixtures', component: FixturesPage, description: 'This is a description' },
-			{ icon: 'icon-group', title: 'Team', component: TeamPage, description: 'This is a description' },
+			{ icon: 'icon-newspaper', title: 'News', component: NewsPage, description: 'All the latest news about Celtic F.C.' },
+			{ icon: 'icon-calendar', title: 'Fixtures', component: FixturesPage, description: 'All the latest fixtures and scores.' },
+			{ icon: 'icon-group', title: 'Team', component: TeamPage, description: 'Find out about the Celtic, first team.' },
 		];
 
 	}
@@ -36,6 +41,11 @@ export class MyApp {
 			// Here you can do any higher level native things you might need.
 			this.statusBar.styleDefault();
 			this.splashScreen.hide();
+			this._appCenterAnalytics.setEnabled( true ).then( () => {
+				this._appCenterAnalytics.trackEvent( 'My Event', { TEST: 'HELLO_WORLD' } ).then( () => {
+					console.log( 'Custom event tracked' );
+				} );
+			} );
 		} );
 	}
 
