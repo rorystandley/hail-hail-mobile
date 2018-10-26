@@ -13,6 +13,9 @@ import { AppCenterAnalytics } from '@ionic-native/app-center-analytics';
 // Components
 import { FixtureComponent } from "../components/fixture/fixture";
 
+// Directive
+import { ButtonAction } from "../directives/button-action/button-action";
+
 // Pages
 import { MyApp } from './app.component';
 import { NewsPage } from "../pages/news/news";
@@ -34,7 +37,8 @@ import { FixturesProvider } from "../providers/fixtures/fixtures";
 		TimeAgoPipe,
 		PlayerPage,
 		FixturesPage,
-		FixtureComponent
+		FixtureComponent,
+		ButtonAction
 	],
 	imports: [
 		BrowserModule,

@@ -27,7 +27,7 @@
                 <time>{{post.date | timeAgo}}</time>
             </section>
             <p padding text-wrap class="title" [innerHTML]="post.title.rendered || post.title"></p>
-            <button *ngIf="post.url" ion-button float-left margin-left tappable (tap)="openLink(post.url, post.id)">Read More</button>
+            <button buttonAction value="test" *ngIf="post.url" ion-button float-left margin-left tappable (tap)="openLink(post.url, post.id)">Read More</button>
             <button *ngIf="post.better_views <= 100" ion-button outline float-right margin-right disabled>
                 <ion-icon name="flame"></ion-icon>
                 {{post.better_views}}
