@@ -29,7 +29,7 @@
                 <time>{{post.date | timeAgo}}</time>
             </section>
             <p padding text-wrap class="title" [innerHTML]="post.title.rendered || post.title"></p>
-            <button buttonAction name="READ_MORE" [properties]="{TITLE: post.title.rendered || post.title}"
+            <button buttonAction name="Read More" [properties]="{TITLE: post.title.rendered || post.title}"
                     *ngIf="post.url" ion-button float-left margin-left tappable (tap)="openLink(post.url, post.id)">Read
                 More
             </button>

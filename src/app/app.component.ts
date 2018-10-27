@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AppCenterPush } from '@ionic-native/app-center-push';
 
 // Pages
 import { NewsPage } from "../pages/news/news";
@@ -21,6 +22,7 @@ export class MyApp {
 	constructor( public platform: Platform,
 	             public statusBar: StatusBar,
 	             public splashScreen: SplashScreen,
+	             public _appCenterPush: AppCenterPush
 	) {
 		this.initializeApp();
 
@@ -54,6 +56,11 @@ export class MyApp {
 			// Here you can do any higher level native things you might need.
 			this.statusBar.styleDefault();
 			this.splashScreen.hide();
+			this._appCenterPush.setEnabled(true).then(() => {
+				this._appCenterPush.addEventListener('My Event').subscribe(pushNotification => {
+					console.log('Recived push notification', pushNotification);
+				});
+			});
 		} );
 	}
 

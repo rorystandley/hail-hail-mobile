@@ -9,6 +9,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { TapticEngine } from "@ionic-native/taptic-engine";
 import { AppCenterAnalytics } from '@ionic-native/app-center-analytics';
+import { AppCenterPush } from '@ionic-native/app-center-push';
 
 // Components
 import { FixtureComponent } from "../components/fixture/fixture";
@@ -62,7 +63,8 @@ import { FixturesProvider } from "../providers/fixtures/fixtures";
 		TapticEngine,
 		TeamProvider,
 		FixturesProvider,
-		AppCenterAnalytics
+		AppCenterAnalytics,
+		AppCenterPush
 	]
 } )
 export class AppModule {
