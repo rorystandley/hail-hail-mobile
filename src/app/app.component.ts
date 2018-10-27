@@ -54,6 +54,12 @@ export class MyApp {
 			// Here you can do any higher level native things you might need.
 			this.splashScreen.hide();
 			this._appCenterPush.setEnabled( true ).then( () => {
+				(<any>window).AppCenter.getInstallId( success => {
+					/**
+					 * TODO - Do something with the ID
+					 */
+					console.log(success)
+				});
 				this._appCenterPush.addEventListener( 'notificationReceived' ).subscribe( pushNotification => {
 					console.log( 'Recived push notification', pushNotification );
 				} );
