@@ -74,6 +74,12 @@ describe( 'News: Success', () => {
 		expect( component._news.incrementCount ).toHaveBeenCalled();
 	} );
 
+	it( 'expect getData()', () => {
+		spyOn( component, 'getData' ).and.callThrough();
+		component.getData();
+		expect( component.getData ).toHaveBeenCalled();
+	} );
+
 } );
 
 // describe( 'News: Error', () => {

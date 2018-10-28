@@ -17,7 +17,7 @@ export class teamProviderMockSucess {
 
 export class newsProviderMockSucess {
 	public get( id, type = 'posts' ): any {
-		return Observable.of( {} );
+		return Observable.of( [] );
 	}
 
 	public incrementCount( id ): any {

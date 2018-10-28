@@ -18,7 +18,7 @@ export class NewsPage implements OnInit {
 
 	constructor( public _news: NewsProvider,
 	             private _inAppBrowser: InAppBrowser,
-	             private _haptic: TapticEngine,
+	             public _haptic: TapticEngine,
 	             private _loadingCtrl: LoadingController ) {
 	}
 
