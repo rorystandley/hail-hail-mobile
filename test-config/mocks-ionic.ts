@@ -15,6 +15,16 @@ export class teamProviderMockSucess {
 	}
 }
 
+export class newsProviderMockSucess {
+	public get( id, type = 'posts' ): any {
+		return Observable.of( {} );
+	}
+
+	public incrementCount( id ): any {
+		return Observable.of( {} );
+	}
+}
+
 export class teamProviderMockFail {
 	public get(): any {
 		return new ErrorObservable( false );

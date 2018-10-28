@@ -58,8 +58,11 @@ export class MyApp {
 					/**
 					 * TODO - Do something with the ID
 					 */
-					console.log(success)
-				});
+					console.log( success )
+				} );
+				/**
+				 * Listen for a push notification coming in
+				 */
 				this._appCenterPush.addEventListener( 'notificationReceived' ).subscribe( pushNotification => {
 					console.log( 'Recived push notification', pushNotification );
 				} );
