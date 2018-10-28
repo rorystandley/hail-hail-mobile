@@ -52,10 +52,26 @@ describe( 'News: Success', () => {
 		expect( component.getData ).toHaveBeenCalled();
 	} );
 
-	it( 'expect doInfinite() to request news data', () => {
+	it( 'expect doInfinite() to request news data and make the device click', () => {
 		spyOn( component, 'getData' );
+		spyOn( component._haptic, 'selection' );
 		component.doInfinite( false );
 		expect( component.getData ).toHaveBeenCalled();
+		expect( component._haptic.selection ).toHaveBeenCalled();
+	} );
+
+	it( 'expect doRefresh() to request news data and make the device click', () => {
+		spyOn( component, 'getData' );
+		spyOn( component._haptic, 'selection' );
+		component.doRefresh( false );
+		expect( component.getData ).toHaveBeenCalled();
+		expect( component._haptic.selection ).toHaveBeenCalled();
+	} );
+
+	it( 'expect openLink() to open link in browser and increment the view count of the news article', () => {
+		spyOn( component._news, 'incrementCount' ).and.callThrough();
+		component.openLink( 'https://google.com', '1234' );
+		expect( component._news.incrementCount ).toHaveBeenCalled();
 	} );
 
 } );
