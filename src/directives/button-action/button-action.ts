@@ -1,6 +1,7 @@
 import { Directive, HostListener, Input } from "@angular/core";
 import { AppCenterAnalytics } from "@ionic-native/app-center-analytics";
 import { TapticEngine } from "@ionic-native/taptic-engine";
+import { Platform } from "ionic-angular";
 
 @Directive( { selector: '[buttonAction]' } )
 export class ButtonAction {
@@ -8,8 +9,10 @@ export class ButtonAction {
 	@Input() name;
 	@Input() properties;
 
-	constructor( private _appCenterAnalytics: AppCenterAnalytics,
-	             private _haptic: TapticEngine
+	constructor(
+		public platform: Platform,
+		private _appCenterAnalytics: AppCenterAnalytics,
+		private _haptic: TapticEngine
 	) {
 
 	}
@@ -19,14 +22,16 @@ export class ButtonAction {
 		/**
 		 * Make a call to app centre
 		 */
-		this._appCenterAnalytics.setEnabled( true ).then( () => {
-			this._appCenterAnalytics.trackEvent( this.name, this.properties ).then( () => {
+		if ( this.platform.is( 'cordova' ) ) {
+			this._appCenterAnalytics.setEnabled( true ).then( () => {
+				this._appCenterAnalytics.trackEvent( this.name, this.properties ).then( () => {
 
+				} );
 			} );
-		} );
-		/**
-		 * Haptics baby
-		 */
-		this._haptic.selection();
+			/**
+			 * Haptics baby
+			 */
+			this._haptic.selection();
+		}
 	}
 }
