@@ -53,20 +53,22 @@ export class MyApp {
 			// Okay, so the platform is ready and our plugins are available.
 			// Here you can do any higher level native things you might need.
 			this.splashScreen.hide();
-			this._appCenterPush.setEnabled( true ).then( () => {
-				(<any>window).AppCenter.getInstallId( success => {
+			if ( this.platform.is( 'cordova' ) ) {
+				this._appCenterPush.setEnabled( true ).then( () => {
+					(<any>window).AppCenter.getInstallId( success => {
+						/**
+						 * TODO - Do something with the ID
+						 */
+						console.log( success )
+					} );
 					/**
-					 * TODO - Do something with the ID
+					 * Listen for a push notification coming in
 					 */
-					console.log( success )
+					this._appCenterPush.addEventListener( 'notificationReceived' ).subscribe( pushNotification => {
+						console.log( 'Recived push notification', pushNotification );
+					} );
 				} );
-				/**
-				 * Listen for a push notification coming in
-				 */
-				this._appCenterPush.addEventListener( 'notificationReceived' ).subscribe( pushNotification => {
-					console.log( 'Recived push notification', pushNotification );
-				} );
-			} );
+			}
 		} );
 	}
 
