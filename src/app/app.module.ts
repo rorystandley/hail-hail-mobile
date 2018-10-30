@@ -23,6 +23,7 @@ import { NewsPage } from "../pages/news/news";
 import { TeamPage } from "../pages/team/team";
 import { PlayerPage } from "../pages/player/player";
 import { FixturesPage } from "../pages/fixtures/fixtures";
+import { AboutPage } from "../pages/about/about";
 
 // Providers
 import { NewsProvider } from '../providers/news/news';
@@ -39,7 +40,8 @@ import { FixturesProvider } from "../providers/fixtures/fixtures";
 		PlayerPage,
 		FixturesPage,
 		FixtureComponent,
-		ButtonAction
+		ButtonAction,
+		AboutPage
 	],
 	imports: [
 		BrowserModule,
@@ -52,7 +54,8 @@ import { FixturesProvider } from "../providers/fixtures/fixtures";
 		NewsPage,
 		TeamPage,
 		PlayerPage,
-		FixturesPage
+		FixturesPage,
+		AboutPage
 	],
 	providers: [
 		StatusBar,

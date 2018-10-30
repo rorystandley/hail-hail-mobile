@@ -56,18 +56,7 @@ i:before {
     /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-.icon-calendar:before {
-    content: '\e800';
-}
-
-/* '' */
-.icon-group:before {
-    content: '\e801';
-}
-
-/* '' */
-.icon-newspaper:before {
-    content: '\f1ea';
-}
-
-/* '' */
+.icon-calendar:before { content: '\e800'; } /* '' */
+.icon-group:before { content: '\e801'; } /* '' */
+.icon-soccer-ball:before { content: '\f1e3'; } /* '' */
+.icon-newspaper:before { content: '\f1ea'; } /* '' */

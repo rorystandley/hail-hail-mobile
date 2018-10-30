@@ -7,6 +7,7 @@ import { AppCenterPush } from '@ionic-native/app-center-push';
 import { NewsPage } from "../pages/news/news";
 import { TeamPage } from "../pages/team/team";
 import { FixturesPage } from "../pages/fixtures/fixtures";
+import { AboutPage } from "../pages/about/about";
 
 @Component( {
 	templateUrl: 'app.html'
@@ -43,6 +44,12 @@ export class MyApp {
 				title: 'Team',
 				component: TeamPage,
 				description: 'Find out about the Celtic, first team.'
+			},
+			{
+				icon: 'icon-soccer-ball',
+				title: 'About',
+				component: AboutPage,
+				description: 'Find out about why we are here.'
 			},
 		];
 
