@@ -30,6 +30,8 @@ import { NewsProvider } from '../providers/news/news';
 import { TimeAgoPipe } from "time-ago-pipe";
 import { TeamProvider } from "../providers/team/team";
 import { FixturesProvider } from "../providers/fixtures/fixtures";
+import { LocalStorage } from "../providers/local-storage/local-storage";
+import { LocalCache } from "../providers/local-cache/local-cache";
 
 @NgModule( {
 	declarations: [
@@ -67,7 +69,9 @@ import { FixturesProvider } from "../providers/fixtures/fixtures";
 		TeamProvider,
 		FixturesProvider,
 		AppCenterAnalytics,
-		AppCenterPush
+		AppCenterPush,
+		LocalStorage,
+		LocalCache
 	]
 } )
 export class AppModule {
