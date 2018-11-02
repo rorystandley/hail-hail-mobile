@@ -10,7 +10,7 @@ export class NewsProvider {
 	}
 
 	get( page = 1, type = 'posts' ): Observable<any> {
-		return this._http.get( 'https://hailhail.club/wp-json/wp/v2/' + type + '/?page=' + page )
+		return this._http.get( 'https://hailhail.club/wp-json/wp/v2/' + type + '/?page=' + page );
 	}
 
 	incrementCount( id ): Observable<any> {
