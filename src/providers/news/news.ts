@@ -16,7 +16,7 @@ export class NewsProvider {
 	 * @param {string} type
 	 * @returns {Observable<any>}
 	 */
-	@Cacheable()
+	@Cacheable( { maxAge: 3600000 } )
 	get( page = 1, type = 'posts' ): Observable<any> {
 		return this._http.get( 'https://hailhail.club/wp-json/wp/v2/' + type + '/?page=' + page );
 	}
