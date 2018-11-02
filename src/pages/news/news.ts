@@ -23,10 +23,10 @@ export class NewsPage implements OnInit {
 	}
 
 	ngOnInit() {
-		this.getData(null, false, true);
+		this.getData( null, false, true );
 	}
 
-	getData( scroll?, reset = false, customLoader = false ) {
+	getData( scroll?, reset = false, customLoader = false, method = 'get' ) {
 		/**
 		 * Show our loader
 		 */
@@ -46,7 +46,7 @@ export class NewsPage implements OnInit {
 		if ( reset ) {
 			this.page = 1;
 		}
-		this._news.get( this.page, this.type ).subscribe( resp => {
+		this._news[ method ]( this.page, this.type ).subscribe( resp => {
 				/**
 				 * If we need to reset do it
 				 */
@@ -103,7 +103,7 @@ export class NewsPage implements OnInit {
 		/**
 		 * Refresh the data
 		 */
-		this.getData( refresher, true );
+		this.getData( refresher, true, false, 'reset' );
 	}
 
 	doInfinite( infiniteScroll ) {

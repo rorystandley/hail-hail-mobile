@@ -18,7 +18,6 @@ export class FixtureComponent {
 		for ( let i = 0; i < input.length; i++ ) {
 			result = input.charAt( i ) + result;
 		}
-		console.log( input, result );
 		return result;
 	}
 
