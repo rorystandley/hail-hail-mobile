@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { TapticEngine } from "@ionic-native/taptic-engine";
-import { LoadingController } from "ionic-angular";
+import { LoadingController, Platform } from "ionic-angular";
 
 // Providers
 import { NewsProvider } from "../../providers/news/news";
@@ -19,13 +19,21 @@ export class NewsPage implements OnInit {
 	constructor( public _news: NewsProvider,
 	             private _inAppBrowser: InAppBrowser,
 	             public _haptic: TapticEngine,
-	             private _loadingCtrl: LoadingController ) {
+	             private _loadingCtrl: LoadingController,
+	             private _platform: Platform ) {
 	}
 
 	ngOnInit() {
 		this.getData( null, false, true );
 	}
 
+	/**
+	 * Get our data from the API
+	 * @param scroll
+	 * @param {boolean} reset
+	 * @param {boolean} customLoader
+	 * @param {string} method
+	 */
 	getData( scroll?, reset = false, customLoader = false, method = 'get' ) {
 		/**
 		 * Show our loader
@@ -81,20 +89,26 @@ export class NewsPage implements OnInit {
 			} )
 	}
 
+	/**
+	 * Open the browser
+	 * @type {InAppBrowserObject}
+	 */
 	openLink( url, id ) {
-		/**
-		 * Open the browser
-		 * @type {InAppBrowserObject}
-		 */
-		const browser = this._inAppBrowser.create( url, '_blank' );
-		browser.show();
-		/**
-		 * Now we want to increment our hit count for this article
-		 */
-		this._news.incrementCount( id ).subscribe( count => {
-		} );
+		if ( this._platform.is( 'cordova' ) ) {
+			const browser = this._inAppBrowser.create( url, '_blank' );
+			browser.show();
+			/**
+			 * Now we want to increment our hit count for this article
+			 */
+			this._news.incrementCount( id ).subscribe( count => {
+			} );
+		}
 	}
 
+	/**
+	 * Pull to refresh
+	 * @param refresher
+	 */
 	doRefresh( refresher ) {
 		/**
 		 * Give the user haptic feedback
@@ -106,6 +120,10 @@ export class NewsPage implements OnInit {
 		this.getData( refresher, true, false, 'reset' );
 	}
 
+	/**
+	 * Infinite scrolling
+	 * @param infiniteScroll
+	 */
 	doInfinite( infiniteScroll ) {
 		/**
 		 * Give the user haptic feedback
