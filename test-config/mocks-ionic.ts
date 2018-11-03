@@ -1,27 +1,26 @@
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Observable } from "rxjs/Observable";
 import { ErrorObservable } from "rxjs/observable/ErrorObservable";
-import 'rxjs/add/observable/of';
+import { of } from 'rxjs';
 import { NavController } from "ionic-angular";
 
 export class teamProviderMockSucess {
 	public get(): any {
-		return Observable.of( {} );
+		return of( {} );
 	}
 
 	public getPlayer( id ): any {
-		return Observable.of( {} );
+		return of( {} );
 	}
 }
 
 export class newsProviderMockSucess {
 	public get( id, type = 'posts' ): any {
-		return Observable.of( [] );
+		return of( [] );
 	}
 
 	public incrementCount( id ): any {
-		return Observable.of( {} );
+		return of( {} );
 	}
 }
 
@@ -59,7 +58,7 @@ export class PlatformMock {
 	}
 
 	public is(): boolean {
-		return true;
+		return false;
 	}
 
 	public getElementComputedStyle( container: any ): any {

@@ -95,8 +95,8 @@ export class NewsPage implements OnInit {
 	 */
 	openLink( url, id ) {
 		if ( this._platform.is( 'cordova' ) ) {
-			const browser = this._inAppBrowser.create( url, '_blank' );
-			browser.show();
+			// const browser = this._inAppBrowser.create( url, '_blank' );
+			// browser.show();
 			/**
 			 * Now we want to increment our hit count for this article
 			 */

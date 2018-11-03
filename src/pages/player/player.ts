@@ -32,7 +32,6 @@ export class PlayerPage implements OnInit {
 		loading.present();
 		this._teamProvider.getPlayer( this._navParams.get( 'id' ) ).subscribe( resp => {
 			this.player = resp;
-			console.log( resp );
 			loading.dismiss();
 		}, error => {
 			loading.dismiss();

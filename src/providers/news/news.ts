@@ -2,9 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs/Observable";
 import { Cacheable, CacheBuster } from 'ngx-cacheable';
+import { Subject } from "rxjs/Subject";
+
+const cacheBuster$ = new Subject<void>();
 
 @Injectable()
 export class NewsProvider {
+
 
 	constructor( public _http: HttpClient ) {
 
@@ -16,7 +20,10 @@ export class NewsProvider {
 	 * @param {string} type
 	 * @returns {Observable<any>}
 	 */
-	@Cacheable( { maxAge: 3600000 } )
+	@Cacheable( {
+		maxAge: 3600000,
+		cacheBusterObserver: cacheBuster$
+	} )
 	get( page = 1, type = 'posts' ): Observable<any> {
 		return this._http.get( 'https://hailhail.club/wp-json/wp/v2/' + type + '/?page=' + page );
 	}
@@ -27,7 +34,9 @@ export class NewsProvider {
 	 * @param {string} type
 	 * @returns {Observable<any>}
 	 */
-	@CacheBuster()
+	@CacheBuster( {
+		cacheBusterObserver: cacheBuster$
+	} )
 	reset( page = 1, type = 'posts' ): Observable<any> {
 		return this._http.get( 'https://hailhail.club/wp-json/wp/v2/' + type + '/?page=' + page );
 	}
