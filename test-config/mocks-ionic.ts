@@ -14,6 +14,18 @@ export class teamProviderMockSucess {
 	}
 }
 
+export class fixturesProviderMockSucess {
+	public get( id, type = 'posts' ): any {
+		return of( [ {} ] );
+	}
+}
+
+export class fixturesProviderMockFail {
+	public get(): any {
+		return throwError( false );
+	}
+}
+
 export class newsProviderMockSucess {
 	public get( id, type = 'posts' ): any {
 		return of( [ {} ] );
