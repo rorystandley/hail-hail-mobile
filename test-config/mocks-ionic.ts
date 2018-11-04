@@ -3,6 +3,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ErrorObservable } from "rxjs/observable/ErrorObservable";
 import { of } from 'rxjs';
 import { NavController } from "ionic-angular";
+import { throwError } from 'rxjs';
 
 export class teamProviderMockSucess {
 	public get(): any {
@@ -26,11 +27,11 @@ export class newsProviderMockSucess {
 
 export class teamProviderMockFail {
 	public get(): any {
-		return new ErrorObservable( false );
+		return throwError( false );
 	}
 
 	public getPlayer( id ): any {
-		return new ErrorObservable( false );
+		return throwError( false );
 	}
 }
 
