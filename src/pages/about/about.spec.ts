@@ -35,7 +35,7 @@ describe( 'News: Success', () => {
 		component = null;
 	} );
 
-	it( 'expect openLink() to open link in browser and increment the view count of the news article', () => {
+	it( 'expect openLink() to open link in browser', () => {
 		component.openLink( 'https://google.com' );
 	} );
 

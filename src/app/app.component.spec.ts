@@ -38,7 +38,8 @@ describe( 'MyApp Component', () => {
 	} );
 
 	it( 'should be created', () => {
-		expect( component  ).toBeTruthy( );
+		// component.platform.setCordovaTrue();
+		// component.initializeApp();
 	} );
 
 } );
