@@ -1,6 +1,5 @@
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ErrorObservable } from "rxjs/observable/ErrorObservable";
 import { of } from 'rxjs';
 import { NavController } from "ionic-angular";
 import { throwError } from 'rxjs';
@@ -17,11 +16,26 @@ export class teamProviderMockSucess {
 
 export class newsProviderMockSucess {
 	public get( id, type = 'posts' ): any {
-		return of( [] );
+		return of( [ {} ] );
 	}
 
 	public incrementCount( id ): any {
 		return of( {} );
+	}
+}
+
+export class newsProviderMockFail {
+	public get( id, type = 'posts' ): any {
+		return throwError( false );
+	}
+
+	public incrementCount( id ): any {
+		return throwError( false );
+	}
+}
+
+export class mockScrollEvent {
+	public complete() {
 	}
 }
 
@@ -36,6 +50,12 @@ export class teamProviderMockFail {
 }
 
 export class PlatformMock {
+	isCordova: boolean;
+
+	public setCordovaTrue() {
+		this.isCordova = true;
+	}
+
 	public ready(): Promise<string> {
 		return new Promise( ( resolve ) => {
 			resolve( 'READY' );
@@ -59,7 +79,7 @@ export class PlatformMock {
 	}
 
 	public is(): boolean {
-		return false;
+		return this.isCordova;
 	}
 
 	public getElementComputedStyle( container: any ): any {
