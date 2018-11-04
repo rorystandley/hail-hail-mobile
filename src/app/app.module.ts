@@ -24,6 +24,7 @@ import { TeamPage } from "../pages/team/team";
 import { PlayerPage } from "../pages/player/player";
 import { FixturesPage } from "../pages/fixtures/fixtures";
 import { AboutPage } from "../pages/about/about";
+import { PodcastsPage } from "../pages/podcasts/podcasts";
 
 // Providers
 import { NewsProvider } from '../providers/news/news';
@@ -41,7 +42,8 @@ import { FixturesProvider } from "../providers/fixtures/fixtures";
 		FixturesPage,
 		FixtureComponent,
 		ButtonAction,
-		AboutPage
+		AboutPage,
+		PodcastsPage
 	],
 	imports: [
 		BrowserModule,
@@ -55,7 +57,8 @@ import { FixturesProvider } from "../providers/fixtures/fixtures";
 		TeamPage,
 		PlayerPage,
 		FixturesPage,
-		AboutPage
+		AboutPage,
+		PodcastsPage
 	],
 	providers: [
 		StatusBar,

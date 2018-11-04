@@ -8,6 +8,7 @@ import { NewsPage } from "../pages/news/news";
 import { TeamPage } from "../pages/team/team";
 import { FixturesPage } from "../pages/fixtures/fixtures";
 import { AboutPage } from "../pages/about/about";
+import { PodcastsPage } from "../pages/podcasts/podcasts";
 
 @Component( {
 	templateUrl: 'app.html'
@@ -32,6 +33,12 @@ export class MyApp {
 				title: 'News',
 				component: NewsPage,
 				description: 'All the latest news about Celtic F.C.'
+			},
+			{
+				icon: 'icon-calendar',
+				title: 'Podcasts',
+				component: PodcastsPage,
+				description: 'All the latest Celtic podcasts.'
 			},
 			{
 				icon: 'icon-calendar',
