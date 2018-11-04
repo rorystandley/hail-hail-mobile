@@ -31,6 +31,7 @@ import { NewsProvider } from '../providers/news/news';
 import { TimeAgoPipe } from "time-ago-pipe";
 import { TeamProvider } from "../providers/team/team";
 import { FixturesProvider } from "../providers/fixtures/fixtures";
+import { PodcastsProvider } from "../providers/podcasts/podcasts";
 
 @NgModule( {
 	declarations: [
@@ -71,6 +72,7 @@ import { FixturesProvider } from "../providers/fixtures/fixtures";
 		FixturesProvider,
 		AppCenterAnalytics,
 		AppCenterPush,
+		PodcastsProvider
 	]
 } )
 export class AppModule {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { App, LoadingController } from "ionic-angular";
 
 // Providers
-import { TeamProvider } from "../../providers/team/team";
+import { PodcastsProvider } from "../../providers/podcasts/podcasts";
 
 @Component( {
 	selector: 'page-podcasts',
@@ -13,7 +13,7 @@ export class PodcastsPage implements OnInit {
 	players: any;
 	nav: any;
 
-	constructor( public _teamProvider: TeamProvider,
+	constructor( public _podcastsProvider: PodcastsProvider,
 	             public _app: App,
 	             private _loadingCtrl: LoadingController ) {
 	}
@@ -37,7 +37,7 @@ export class PodcastsPage implements OnInit {
 		/**
 		 * Get all the players
 		 */
-		this._teamProvider.get().subscribe( resp => {
+		this._podcastsProvider.get().subscribe( resp => {
 				this.players = resp;
 				loading.dismiss();
 			},
