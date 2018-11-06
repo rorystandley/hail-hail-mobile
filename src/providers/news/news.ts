@@ -35,7 +35,7 @@ export class NewsProvider {
 	 * @returns {Observable<any>}
 	 */
 	@CacheBuster( {
-		cacheBusterObserver: cacheBuster$
+		cacheBusterNotifier: cacheBuster$
 	} )
 	reset( page = 1, type = 'posts' ): Observable<any> {
 		return this._http.get( 'https://hailhail.club/wp-json/wp/v2/' + type + '/?page=' + page );
