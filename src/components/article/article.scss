@@ -1,0 +1,31 @@
+app-article {
+  display: inline-block;
+  button[disabled] {
+    opacity: 1 !important;
+  }
+  .item-inner {
+    padding-right: 0 !important;
+  }
+  .label {
+    margin-right: 0;
+  }
+  .icon {
+    padding-right: 5px;
+  }
+  .title {
+    margin: 0;
+  }
+  .source {
+    padding-bottom: 0 !important;
+    white-space: initial;
+    span {
+      color: map-get($colors, primary);
+      font-size: 1.6rem;
+    }
+    time {
+      color: #8e9093;
+      font-size: 1.4rem;
+      margin: 0;
+    }
+  }
+}

@@ -1,16 +1,4 @@
 page-news {
-  button[disabled] {
-    opacity: 1 !important;
-  }
-  .item-inner {
-    padding-right: 0 !important;
-  }
-  .label {
-    margin-right: 0;
-  }
-  .icon {
-    padding-right: 5px;
-  }
   .spinner {
     animation: spinner-fade-out 1s linear infinite;
     background: url("../assets/imgs/logo-clover.png") no-repeat;
@@ -22,17 +10,5 @@ page-news {
   }
   .scroll-content {
     border-top: 0 !important;
-  }
-  .source {
-    padding-bottom: 0 !important;
-    white-space: initial;
-    span {
-      color: map-get($colors, primary);
-      font-size: 1.6rem;
-    }
-    time {
-      color: #8e9093;
-      font-size: 1.4rem;
-    }
   }
 }

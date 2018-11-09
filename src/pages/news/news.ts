@@ -15,6 +15,7 @@ export class NewsPage implements OnInit {
 	data: any = [];
 	type: string = 'posts';
 	page: number = 1;
+	device: string;
 
 	constructor( public _news: NewsProvider,
 	             private _inAppBrowser: InAppBrowser,
@@ -25,6 +26,11 @@ export class NewsPage implements OnInit {
 
 	ngOnInit() {
 		this.getData( null, false, true );
+		if ( this._platform.is('tablet') ) {
+			this.device = 'tablet';
+		} else {
+			this.device = 'mobile';
+		}
 	}
 
 	/**

@@ -13,6 +13,7 @@ import { AppCenterPush } from '@ionic-native/app-center-push';
 
 // Components
 import { FixtureComponent } from "../components/fixture/fixture";
+import { ArticleComponent } from "../components/article/article";
 
 // Directive
 import { ButtonAction } from "../directives/button-action/button-action";
@@ -41,7 +42,8 @@ import { FixturesProvider } from "../providers/fixtures/fixtures";
 		FixturesPage,
 		FixtureComponent,
 		ButtonAction,
-		AboutPage
+		AboutPage,
+		ArticleComponent
 	],
 	imports: [
 		BrowserModule,
