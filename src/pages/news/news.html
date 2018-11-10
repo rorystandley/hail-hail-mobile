@@ -21,32 +21,19 @@
     <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
-    <ion-list no-lines>
-        <ion-item no-padding *ngFor="let post of data">
-            <div [ngStyle]="{'background-image':' url(' + post.featured_image + ')'}" class="featured"></div>
-            <section padding class="source">
-                <span *ngIf="post.source">{{post.source}} - </span>
-                <time>{{post.date | timeAgo}}</time>
-            </section>
-            <p padding text-wrap class="title" [innerHTML]="post.title.rendered || post.title"></p>
-            <button buttonAction name="Read More" [properties]="{TITLE: post.title.rendered || post.title}"
-                    *ngIf="post.url" ion-button float-left margin-left tappable (tap)="openLink(post.url, post.id)">Read
-                More
-            </button>
-            <button *ngIf="post.better_views <= 100" ion-button outline float-right margin-right disabled>
-                <ion-icon name="flame"></ion-icon>
-                {{post.better_views}}
-            </button>
-            <button *ngIf="post.better_views <= 1000 && post.better_views > 100" ion-button outline float-right
-                    margin-right disabled color="warm">
-                <ion-icon name="flame"></ion-icon>
-                {{post.better_views}}
-            </button>
-            <button *ngIf="post.better_views > 1000" ion-button outline float-right margin-right disabled color="hot">
-                <ion-icon name="flame"></ion-icon>
-                {{post.better_views}}
-            </button>
-        </ion-item>
+    <ion-list *ngIf="device == 'tablet'" no-lines>
+        <ion-grid>
+            <ion-row>
+                <ion-col col-12 col-md-6 col-lg-4 col-xl-3 *ngFor="let post of data">
+                    <app-article class="tablet" [data]="post"></app-article>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-list>
+    <ion-list *ngIf="device == 'mobile'" no-lines>
+        <ng-container no-padding *ngFor="let post of data">
+            <app-article class="mobile" [data]="post"></app-article>
+        </ng-container>
     </ion-list>
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
         <ion-infinite-scroll-content></ion-infinite-scroll-content>
