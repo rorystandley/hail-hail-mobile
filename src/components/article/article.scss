@@ -1,5 +1,6 @@
 app-article {
   &.tablet {
+    display: inline-block;
     .source {
       min-height: 54px;
     }
@@ -7,7 +8,6 @@ app-article {
       min-height: 98px;
     }
   }
-  display: inline-block;
   button[disabled] {
     opacity: 1 !important;
   }
