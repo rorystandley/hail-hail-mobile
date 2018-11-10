@@ -25,14 +25,14 @@
         <ion-grid>
             <ion-row>
                 <ion-col col-12 col-md-6 col-lg-4 col-xl-3 *ngFor="let post of data">
-                    <app-article [data]="post"></app-article>
+                    <app-article class="tablet" [data]="post"></app-article>
                 </ion-col>
             </ion-row>
         </ion-grid>
     </ion-list>
     <ion-list *ngIf="device == 'mobile'" no-lines>
         <ng-container no-padding *ngFor="let post of data">
-            <app-article [data]="post"></app-article>
+            <app-article class="mobile" [data]="post"></app-article>
         </ng-container>
     </ion-list>
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
