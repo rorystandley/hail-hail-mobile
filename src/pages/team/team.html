@@ -9,25 +9,17 @@
 
 <ion-content class="card-background-page" no-padding>
     <ng-container *ngIf="players">
-        <ion-card buttonAction name="Navigation" [properties]="{title: player.name}"
-                  *ngFor="let player of players.goalkeepers" tappable (tap)="pushPage(player.id)">
-            <img [src]="player.image"/>
-            <div class="card-title">{{player.name}}</div>
-        </ion-card>
-        <ion-card buttonAction name="Navigation" [properties]="{title: player.name}"
-                  *ngFor="let player of players.defenders" tappable (tap)="pushPage(player.id)">
-            <img [src]="player.image"/>
-            <div class="card-title">{{player.name}}</div>
-        </ion-card>
-        <ion-card buttonAction name="Navigation" [properties]="{title: player.name}"
-                  *ngFor="let player of players.midfielders" tappable (tap)="pushPage(player.id)">
-            <img [src]="player.image"/>
-            <div class="card-title">{{player.name}}</div>
-        </ion-card>
-        <ion-card buttonAction name="Navigation" [properties]="{title: player.name}"
-                  *ngFor="let player of players.strikers" tappable (tap)="pushPage(player.id)">
-            <img [src]="player.image"/>
-            <div class="card-title">{{player.name}}</div>
-        </ion-card>
+        <ng-container *ngFor="let player of players.goalkeepers">
+            <app-player-article [data]="player"></app-player-article>
+        </ng-container>
+        <ng-container *ngFor="let player of players.defenders">
+            <app-player-article [data]="player"></app-player-article>
+        </ng-container>
+        <ng-container *ngFor="let player of players.midfielders">
+            <app-player-article [data]="player"></app-player-article>
+        </ng-container>
+        <ng-container *ngFor="let player of players.strikers">
+            <app-player-article [data]="player"></app-player-article>
+        </ng-container>
     </ng-container>
 </ion-content>
