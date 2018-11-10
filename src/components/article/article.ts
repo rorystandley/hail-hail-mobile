@@ -10,7 +10,6 @@ export class ArticleComponent {
 	@Input() data: Article;
 
 	constructor() {
-		console.log('erijeijwiej')
 	}
 
 }
