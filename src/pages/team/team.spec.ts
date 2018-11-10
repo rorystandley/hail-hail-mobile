@@ -48,7 +48,7 @@ describe( 'Pages: Team Success', () => {
 		component = null;
 	} );
 
-	it( 'expect ngOninit() to request player data and succeed', () => {
+	it( 'expect ngOninit() to request player-article data and succeed', () => {
 		spyOn( component._teamProvider, 'get' ).and.callThrough();
 		component.ngOnInit();
 		expect( component._teamProvider.get ).toHaveBeenCalled();
@@ -84,7 +84,7 @@ describe( 'Pages: Team Error', () => {
 		component = null;
 	} );
 
-	it( 'expect ngOninit() to request player data and fail', () => {
+	it( 'expect ngOninit() to request player-article data and fail', () => {
 		spyOn( component._teamProvider, 'get' ).and.callThrough();
 		component.ngOnInit();
 		expect( component._teamProvider.get ).toHaveBeenCalled();

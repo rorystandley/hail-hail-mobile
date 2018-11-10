@@ -20,7 +20,7 @@ export class TeamProvider {
 	}
 
 	/**
-	 * Get a single player by id
+	 * Get a single player-article by id
 	 * @param id
 	 * @returns {Observable<any>}
 	 */

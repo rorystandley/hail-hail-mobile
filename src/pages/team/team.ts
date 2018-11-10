@@ -52,7 +52,7 @@ export class TeamPage implements OnInit {
 	}
 
 	/**
-	 * Link through to the single player page with id provided
+	 * Link through to the single player-article page with id provided
 	 * @param id
 	 */
 	pushPage( id ) {
