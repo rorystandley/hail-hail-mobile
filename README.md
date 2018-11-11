@@ -6,7 +6,7 @@
 [![codecov](https://codecov.io/gh/rorystandley/hail-hail-mobile/branch/develop/graph/badge.svg)](https://codecov.io/gh/rorystandley/hail-hail-mobile)
 
 # Hail Hail Club
-Ionic app for [HailHail.Clib](https://hailhail.club)
+Ionic app for [HailHail.Club](https://hailhail.club)
 
 ## App Preview
 ![App Preview](https://github.com/rorystandley/hail-hail-mobile/blob/develop/resources/appstore-submission/gifs/app-preview.gif)
