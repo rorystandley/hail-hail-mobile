@@ -8,7 +8,31 @@
 </ion-header>
 
 <ion-content class="card-background-page" no-padding>
-    <ng-container *ngIf="players">
+    <ng-container *ngIf="device == 'tablet' && players">
+        <ion-grid>
+            <ion-row>
+                <ion-col col-12 col-md-6 col-lg-4 col-xl-3 *ngFor="let player of players.goalkeepers">
+                    <app-player-article [data]="player"></app-player-article>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-12 col-md-6 col-lg-4 col-xl-3 *ngFor="let player of players.defenders">
+                    <app-player-article [data]="player"></app-player-article>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-12 col-md-6 col-lg-4 col-xl-3 *ngFor="let player of players.midfielders">
+                    <app-player-article [data]="player"></app-player-article>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-12 col-md-6 col-lg-4 col-xl-3 *ngFor="let player of players.strikers">
+                    <app-player-article [data]="player"></app-player-article>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ng-container>
+    <ng-container *ngIf="device == 'mobile' && players">
         <ng-container *ngFor="let player of players.goalkeepers">
             <app-player-article [data]="player"></app-player-article>
         </ng-container>
