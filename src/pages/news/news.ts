@@ -26,7 +26,7 @@ export class NewsPage implements OnInit {
 
 	ngOnInit() {
 		this.getData( null, false, true );
-		if ( this._platform.is('tablet') ) {
+		if ( this._platform.is( 'tablet' ) ) {
 			this.device = 'tablet';
 		} else {
 			this.device = 'mobile';
@@ -93,22 +93,6 @@ export class NewsPage implements OnInit {
 				 */
 				loading.dismiss();
 			} )
-	}
-
-	/**
-	 * Open the browser
-	 * @type {InAppBrowserObject}
-	 */
-	openLink( url, id ) {
-		if ( this._platform.is( 'cordova' ) ) {
-			const browser = this._inAppBrowser.create( url, '_blank' );
-			browser.show();
-			/**
-			 * Now we want to increment our hit count for this article
-			 */
-			this._news.incrementCount( id ).subscribe( count => {
-			} );
-		}
 	}
 
 	/**

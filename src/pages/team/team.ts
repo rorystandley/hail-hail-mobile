@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { App, LoadingController, Platform } from "ionic-angular";
 
-// Pages
-import { PlayerPage } from "../player/player";
 // Providers
 import { TeamProvider } from "../../providers/team/team";
 
