@@ -60,13 +60,4 @@ export class TeamPage implements OnInit {
 				 */
 			} )
 	}
-
-	/**
-	 * Link through to the single player-article page with id provided
-	 * @param id
-	 */
-	pushPage( id ) {
-		this.nav.push( PlayerPage, { id: id } );
-	}
-
 }
