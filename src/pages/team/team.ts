@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { App, LoadingController } from "ionic-angular";
+import { App, LoadingController, Platform } from "ionic-angular";
 
 // Pages
 import { PlayerPage } from "../player/player";
@@ -14,10 +14,12 @@ export class TeamPage implements OnInit {
 
 	players: any;
 	nav: any;
+	device: string;
 
 	constructor( public _teamProvider: TeamProvider,
 	             public _app: App,
-	             private _loadingCtrl: LoadingController ) {
+	             private _loadingCtrl: LoadingController,
+	             public _platform: Platform ) {
 	}
 
 	ngOnInit() {
@@ -32,6 +34,14 @@ export class TeamPage implements OnInit {
 		      `
 		} );
 		loading.present();
+		/**
+		 * Define what type of device we are on
+		 */
+		if ( this._platform.is( 'tablet' ) ) {
+			this.device = 'tablet';
+		} else {
+			this.device = 'mobile';
+		}
 		/**
 		 * @type {NavControllerBase}
 		 */
@@ -50,13 +60,4 @@ export class TeamPage implements OnInit {
 				 */
 			} )
 	}
-
-	/**
-	 * Link through to the single player page with id provided
-	 * @param id
-	 */
-	pushPage( id ) {
-		this.nav.push( PlayerPage, { id: id } );
-	}
-
 }

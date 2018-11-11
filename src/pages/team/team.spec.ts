@@ -1,6 +1,6 @@
 // Core files and modules
 import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { App, LoadingController } from "ionic-angular";
+import { App, LoadingController, Platform } from "ionic-angular";
 
 // Pages
 import { TeamPage } from "./team";
@@ -29,6 +29,7 @@ describe( 'Pages: Team Success', () => {
 				{ provide: TeamProvider, useClass: teamProviderMockSucess },
 				{ provide: App, useClass: mockAppPlatform },
 				{ provide: LoadingController, useFactory: () => mockLoadingController.instance() },
+				{ provide: Platform, useClass: mockAppPlatform }
 			],
 			schemas: []
 
@@ -48,7 +49,7 @@ describe( 'Pages: Team Success', () => {
 		component = null;
 	} );
 
-	it( 'expect ngOninit() to request player data and succeed', () => {
+	it( 'expect ngOninit() to request player-article data and succeed', () => {
 		spyOn( component._teamProvider, 'get' ).and.callThrough();
 		component.ngOnInit();
 		expect( component._teamProvider.get ).toHaveBeenCalled();
@@ -65,6 +66,7 @@ describe( 'Pages: Team Error', () => {
 				{ provide: TeamProvider, useClass: teamProviderMockFail },
 				{ provide: App, useClass: mockAppPlatform },
 				{ provide: LoadingController, useFactory: () => mockLoadingController.instance() },
+				{ provide: Platform, useClass: mockAppPlatform }
 			],
 			schemas: []
 
@@ -84,7 +86,7 @@ describe( 'Pages: Team Error', () => {
 		component = null;
 	} );
 
-	it( 'expect ngOninit() to request player data and fail', () => {
+	it( 'expect ngOninit() to request player-article data and fail', () => {
 		spyOn( component._teamProvider, 'get' ).and.callThrough();
 		component.ngOnInit();
 		expect( component._teamProvider.get ).toHaveBeenCalled();

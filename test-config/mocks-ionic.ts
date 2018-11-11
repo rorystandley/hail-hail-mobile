@@ -251,6 +251,10 @@ export class mockAppPlatform {
 		return new mockNav().getActiveNavs();
 	}
 
+	public is() {
+		return true;
+	}
+
 	public getActiveNavContainers() {
 		return [
 			{
