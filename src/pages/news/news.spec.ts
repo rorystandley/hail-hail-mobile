@@ -29,7 +29,6 @@ describe( 'News: Success', () => {
 			declarations: [ NewsPage ],
 			providers: [
 				{ provide: NewsProvider, useClass: newsProviderMockSucess },
-				InAppBrowser,
 				TapticEngine,
 				{ provide: LoadingController, useFactory: () => mockLoadingController.instance() },
 				{ provide: Platform, useClass: PlatformMock }
@@ -72,13 +71,6 @@ describe( 'News: Success', () => {
 		component.doRefresh( false );
 		expect( component.getData ).toHaveBeenCalled();
 		expect( component._haptic.selection ).toHaveBeenCalled();
-	} );
-
-	it( 'expect openLink() to open link in browser and increment the view count of the news article', () => {
-		component._platform.setCordovaTrue();
-		spyOn( component._news, 'incrementCount' ).and.callThrough();
-		component.openLink( 'https://google.com', '1234' );
-		expect( component._news.incrementCount ).toHaveBeenCalled();
 	} );
 
 	it( 'expect getData() to get latest news and succeed', () => {

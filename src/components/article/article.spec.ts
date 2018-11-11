@@ -1,8 +1,14 @@
 // Core files and modules
 import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { Platform } from "ionic-angular";
+import { newsProviderMockSucess, PlatformMock } from "../../../test-config/mocks-ionic";
+import { InAppBrowser } from "@ionic-native/in-app-browser";
 
 // Components
 import { ArticleComponent } from "./article";
+
+// Providers
+import { NewsProvider } from "../../providers/news/news";
 
 // Variables
 let component: ArticleComponent;
@@ -13,7 +19,11 @@ describe( 'Article Component', () => {
 		TestBed.configureTestingModule( {
 			imports: [],
 			declarations: [ ArticleComponent ],
-			providers: [],
+			providers: [
+				{ provide: Platform, useClass: PlatformMock },
+				InAppBrowser,
+				{ provide: NewsProvider, useClass: newsProviderMockSucess },
+			],
 			schemas: []
 
 		} );
@@ -34,6 +44,13 @@ describe( 'Article Component', () => {
 
 	it( 'expect component to be truthy', () => {
 		expect( component ).toBeTruthy();
+	} );
+
+	it( 'expect openLink() to open link in browser and increment the view count of the news article', () => {
+		component._platform.setCordovaTrue();
+		spyOn( component._news, 'incrementCount' ).and.callThrough();
+		component.openLink( 'https://google.com', '1234' );
+		expect( component._news.incrementCount ).toHaveBeenCalled();
 	} );
 
 } );
