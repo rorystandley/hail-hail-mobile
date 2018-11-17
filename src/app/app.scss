@@ -27,6 +27,11 @@ img {
   display: block;
 }
 
+// NAV
+.bar-button {
+  color: map-get($colors, primary);
+}
+
 // HEADER
 .toolbar-background {
   background: #FFF;
