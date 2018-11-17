@@ -27,9 +27,15 @@ img {
   display: block;
 }
 
-// NAV
+// NAVBAR
 .bar-button {
   color: map-get($colors, primary);
+}
+
+.toolbar-title-md {
+  img {
+    max-width: 60%;
+  }
 }
 
 // HEADER
