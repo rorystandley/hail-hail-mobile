@@ -8,6 +8,7 @@ import { NewsPage } from "../pages/news/news";
 import { TeamPage } from "../pages/team/team";
 import { FixturesPage } from "../pages/fixtures/fixtures";
 import { AboutPage } from "../pages/about/about";
+import { StatusBar } from "@ionic-native/status-bar";
 
 @Component( {
 	templateUrl: 'app.html'
@@ -21,7 +22,8 @@ export class MyApp {
 
 	constructor( public platform: Platform,
 	             public splashScreen: SplashScreen,
-	             public _appCenterPush: AppCenterPush
+	             public _appCenterPush: AppCenterPush,
+	             public _statusBar: StatusBar
 	) {
 		this.initializeApp();
 
@@ -61,6 +63,7 @@ export class MyApp {
 			// Here you can do any higher level native things you might need.
 			this.splashScreen.hide();
 			if ( this.platform.is( 'cordova' ) ) {
+				this._statusBar.backgroundColorByHexString('#ffffff');
 				this._appCenterPush.setEnabled( true ).then( () => {
 					(<any>window).AppCenter.getInstallId( success => {
 						/**
